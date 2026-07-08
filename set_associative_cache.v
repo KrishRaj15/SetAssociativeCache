@@ -25,8 +25,8 @@ module set_associative_cache (
     parameter BLOCK_SIZE_BYTES = 8;
     
     parameter OFFSET_BITS = 3;         // log_2(BLOCK_SIZE_BYTES)
-    parameter INDEX_BITS = 4;          // log_2(NUM_SETS)$
-    parameter TAG_BITS = 9;            // 16 - INDEX_BITS - OFFSET_BITS$
+    parameter INDEX_BITS = 4;          // log_2(NUM_SETS)
+    parameter TAG_BITS = 9;            // 16 - INDEX_BITS - OFFSET_BITS
     parameter WAY_BITS = (WAYS == 4) ? 2 : 1; // Bit-width to index ways
 
     // Address Slicing driven directly by parameters
