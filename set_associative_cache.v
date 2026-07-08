@@ -24,9 +24,9 @@ module set_associative_cache (
     parameter NUM_SETS = 16;
     parameter BLOCK_SIZE_BYTES = 8;
     
-    parameter OFFSET_BITS = 3;         // $log_2(BLOCK_SIZE_BYTES)$
-    parameter INDEX_BITS = 4;          // $log_2(NUM_SETS)$
-    parameter TAG_BITS = 9;            // $16 - INDEX_BITS - OFFSET_BITS$
+    parameter OFFSET_BITS = 3;         // log_2(BLOCK_SIZE_BYTES)
+    parameter INDEX_BITS = 4;          // log_2(NUM_SETS)$
+    parameter TAG_BITS = 9;            // 16 - INDEX_BITS - OFFSET_BITS$
     parameter WAY_BITS = (WAYS == 4) ? 2 : 1; // Bit-width to index ways
 
     // Address Slicing driven directly by parameters
@@ -39,7 +39,7 @@ module set_associative_cache (
     reg valid_array [0:NUM_SETS-1][0:WAYS-1];
     reg [7:0] data_array [0:NUM_SETS-1][0:WAYS-1][0:BLOCK_SIZE_BYTES-1];
     
-    // Age registers for Tracking Counter-Based LRU ($2\text{-bits for } WAYS=4, 1\text{-bit for } WAYS=2$)
+    // Age registers for Tracking Counter-Based LRU (2\text{-bits for } WAYS=4, 1\text{-bit for } WAYS=2)
     reg [WAY_BITS-1:0] age_array [0:NUM_SETS-1][0:WAYS-1];
 
     // Parametrizable Hit Detection
