@@ -39,7 +39,7 @@ module set_associative_cache (
     reg valid_array [0:NUM_SETS-1][0:WAYS-1];
     reg [7:0] data_array [0:NUM_SETS-1][0:WAYS-1][0:BLOCK_SIZE_BYTES-1];
     
-    // Age registers for Tracking Counter-Based LRU (2\text{-bits for } WAYS=4, 1\text{-bit for } WAYS=2)
+    // Age registers for Tracking Counter-Based LRU (2-bits for WAYS=4, 1-bit for WAYS=2)
     reg [WAY_BITS-1:0] age_array [0:NUM_SETS-1][0:WAYS-1];
 
     // Parametrizable Hit Detection
